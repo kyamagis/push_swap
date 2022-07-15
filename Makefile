@@ -7,28 +7,7 @@ SRCS = ./src/main.c\
 		./src/quick_sort.c\
 		./src/coordinate_compression.c\
 		./src/make_a_lst.c\
-		
-# 		./src/divide_height_colour.c\
-# 		./src/open_read.c\
-# 		./src/draw_map.c\
-# 		./src/bresenham.c\
-# 		./src/rotation_move.c\
-# 		./src/key_conversion.c\
-# 		./src/key_conversion2.c\
-# 		./src/init.c\
-# 		./src/rotation.c\
-
-# BONUS = ./src_bonus/main_bonus.c\
-# 		./src_bonus/atoi_hex_bonus.c\
-# 		./src_bonus/divide_height_colour_bonus.c\
-# 		./src_bonus/open_read_bonus.c\
-# 		./src_bonus/draw_map_bonus.c\
-# 		./src_bonus/bresenham_bonus.c\
-# 		./src_bonus/rotation_move_bonus.c\
-# 		./src_bonus/key_conversion_bonus.c\
-# 		./src_bonus/key_conversion2_bonus.c\
-# 		./src_bonus/init_bonus.c\
-# 		./src_bonus/rotation_bonus.c\
+		./src/push_swap.c\
 
 OBJS = $(SRCS:.c=.o)
 BONUS_OBJS = $(BONUS:.c=.o)

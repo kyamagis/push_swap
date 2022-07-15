@@ -6,13 +6,13 @@
 /*   By: kyamagis <kyamagis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 15:54:42 by kyamagis          #+#    #+#             */
-/*   Updated: 2022/07/15 17:43:13 by kyamagis         ###   ########.fr       */
+/*   Updated: 2022/07/15 18:37:59 by kyamagis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-t_stack_list	*make_a_lst(t_stack_list *a_lst, \
+void make_a_lst(t_stack_list *a_lst, \
 							size_t quantity, \
 							int *compressed_sequence)
 {
@@ -36,5 +36,4 @@ t_stack_list	*make_a_lst(t_stack_list *a_lst, \
 	}
 	tent->next = a_lst;
 	a_lst->prev = tent;
-	return (a_lst);
 }

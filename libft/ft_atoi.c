@@ -6,7 +6,7 @@
 /*   By: kyamagis <kyamagis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 19:38:43 by kyamagis          #+#    #+#             */
-/*   Updated: 2022/07/15 17:36:47 by kyamagis         ###   ########.fr       */
+/*   Updated: 2022/07/15 19:48:15 by kyamagis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,13 @@ static int	ft_dis_max_min(unsigned long num, int flag)
 	return ((int)(num * flag));
 }
 
-int	ft_atoi(const char *str)
+static int	a_to_int(const char *str, int flag, size_t i)
 {
 	unsigned long	num;
-	size_t			i;
-	int				flag;
 	size_t			digcount;
 
-	flag = 1;
 	num = 0;
-	i = 0;
 	digcount = 1;
-	if ((str[i] == '-') || (str[i] == '+'))
-	{
-		if (str[i] == '-')
-			flag = -1;
-		i++;
-	}
 	while (ft_isdigit(str[i]))
 	{
 		if (num != 0)
@@ -53,7 +43,26 @@ int	ft_atoi(const char *str)
 		num = 10 * num + (str[i] - '0');
 		i++;
 	}
+	if (!ft_isdigit(str[i]) && str[i] != '\0')
+		ft_libft_exit("Error");
 	return (ft_dis_max_min(num, flag));
+}
+
+int	ft_atoi(const char *str)
+{
+	size_t			i;
+	int				flag;
+
+	flag = 1;
+	i = 0;
+	if (str[i] == '-')
+	{	
+		flag = -1;
+		i++;
+	}
+	if (!ft_isdigit(str[i]))
+		ft_libft_exit("Error");
+	return (a_to_int(str, flag, i));
 }
 
 /*int	main(void)

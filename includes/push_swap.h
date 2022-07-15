@@ -6,7 +6,7 @@
 /*   By: kyamagis <kyamagis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 12:27:55 by kyamagis          #+#    #+#             */
-/*   Updated: 2022/07/15 17:42:53 by kyamagis         ###   ########.fr       */
+/*   Updated: 2022/07/15 18:38:08 by kyamagis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,6 @@ typedef struct s_stack_list
 void			ft_exit(char *error_type);
 int				*sequence_compression(size_t quantity, char **argv);
 void			quick_sort(int left, int right, int *sequence);
-t_stack_list	*make_a_lst(t_stack_list *a_lst, size_t quantity, int *compressed_sequence);
+void			make_a_lst(t_stack_list *a_lst, size_t quantity, int *compressed_sequence);
+void			push_swap(size_t quantity, t_stack_list	*a_lst, t_stack_list *b_lst);
 #endif
