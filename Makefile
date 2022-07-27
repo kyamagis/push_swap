@@ -6,8 +6,8 @@ LDFLAGS = -L$(LIBFT_DIRECTORY) -lft -L$(PRINT_DIRECTORY)
 SRCS = ./src/main.c\
 		./src/quick_sort.c\
 		./src/coordinate_compression.c\
-		./src/make_a_lst.c\
-		./src/push_swap.c\
+		./src/make_a_b_lst.c\
+		./src/ft_push_swap.c\
 
 OBJS = $(SRCS:.c=.o)
 BONUS_OBJS = $(BONUS:.c=.o)

@@ -6,13 +6,30 @@
 /*   By: kyamagis <kyamagis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 15:16:51 by kyamagis          #+#    #+#             */
-/*   Updated: 2022/07/15 18:14:18 by kyamagis         ###   ########.fr       */
+/*   Updated: 2022/07/26 19:24:00 by kyamagis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static void	a_to_int(size_t quantity, char **argv, int *sequence)
+static void	whether_already_sorted(size_t quantity, int64_t *sequence)
+{
+	size_t		i;
+	int64_t		prev_num;
+
+	i = 1;
+	prev_num = sequence[0];
+	while (i < quantity)
+	{
+		if (sequence[i] < prev_num)
+			return ;
+		prev_num = sequence[i];
+		i++;
+	}
+	exit(1);
+}
+
+static void	a_to_int(size_t quantity, char **argv, int64_t *sequence)
 {
 	size_t	i;
 
@@ -26,7 +43,7 @@ static void	a_to_int(size_t quantity, char **argv, int *sequence)
 	}
 }
 
-static void	detect_duplicate_sequence(size_t quantity, int *sorted_sequence)
+static void	detect_duplicate_sequence(size_t quantity, int64_t *sorted_sequence)
 {
 	size_t	i;
 
@@ -40,8 +57,8 @@ static void	detect_duplicate_sequence(size_t quantity, int *sorted_sequence)
 }
 
 static void	coordinate_compression(size_t quantity, \
-									int *sequence, \
-									int *sorted_sequence)
+									int64_t *sequence, \
+									int64_t *sorted_sequence)
 {
 	size_t	i;
 	size_t	compression_num;
@@ -54,7 +71,7 @@ static void	coordinate_compression(size_t quantity, \
 		{
 			if (sequence[i] == sorted_sequence[compression_num])
 			{	
-				sequence[i] = (int)compression_num;
+				sequence[i] = (int64_t)compression_num;
 				break ;
 			}
 			compression_num++;
@@ -63,18 +80,21 @@ static void	coordinate_compression(size_t quantity, \
 	}
 }
 
-int	*sequence_compression(size_t quantity, char **argv)
+int64_t	*sequence_compression(size_t quantity, char **argv)
 {
-	int	*sorted_sequence;
-	int	*sequence;
+	int64_t	*sorted_sequence;
+	int64_t	*sequence;
 
-	sorted_sequence = (int *)malloc(sizeof(int) * (quantity));
+	if (quantity == 1)
+		exit(1);
+	sorted_sequence = (int64_t *)malloc(sizeof(int64_t) * (quantity));
 	if (sorted_sequence == NULL)
 		ft_exit(MALLOC_ERROR_MESSAGE);
 	a_to_int(quantity, argv, sorted_sequence);
+	whether_already_sorted(quantity, sorted_sequence);
 	quick_sort(0, quantity - 1, sorted_sequence);
 	detect_duplicate_sequence(quantity, sorted_sequence);
-	sequence = (int *)malloc(sizeof(int) * (quantity));
+	sequence = (int64_t *)malloc(sizeof(int64_t) * (quantity));
 	if (sequence == NULL)
 		ft_exit(MALLOC_ERROR_MESSAGE);
 	a_to_int(quantity, argv, sequence);

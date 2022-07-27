@@ -6,13 +6,13 @@
 /*   By: kyamagis <kyamagis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 17:29:00 by kyamagis          #+#    #+#             */
-/*   Updated: 2022/07/15 15:25:00 by kyamagis         ###   ########.fr       */
+/*   Updated: 2022/07/25 19:00:54 by kyamagis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static void	ft_swap(int *small, int *big)
+static void	ft_swap(int64_t *small, int64_t *big)
 {
 	int	tmp;
 
@@ -21,7 +21,7 @@ static void	ft_swap(int *small, int *big)
 	*big = tmp;
 }
 
-void	quick_sort(int left, int right, int *sequence)
+void	quick_sort(int left, int right, int64_t *sequence)
 {
 	size_t	i;
 	size_t	j;
